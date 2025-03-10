@@ -85,21 +85,11 @@ Here are the main packages used in this project:
 
 This project is licensed under the MIT License - see the LICENSE file for details. 📜
 
-## 🌟 Contributing
-
-Contributions are welcome! Feel free to fork this repository, make improvements, and submit a pull request. 🙌
-
-1. Fork the repository 🍴
-2. Create a new branch (`git checkout -b feature/your-feature`) 🌿
-3. Commit your changes (`git commit -m "Add your feature"`) ✅
-4. Push to the branch (`git push origin feature/your-feature`) 📤
-5. Create a Pull Request 🚀
-
 ## 📬 Contact
 
 👤 Phongphisut Khenchat
 
-📧 Email: your-email@example.com
+📧 Email: chokun0988@gmail.com
 
 🌐 GitHub: Phongphisut-Khenchat-Personal
 
