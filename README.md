@@ -1,100 +1,104 @@
-# 🎡 Random Choice App
+# 🎡 Wheel of Fortune App
 
-![Flutter](https://img.shields.io/badge/Flutter-3.19.2-blue?logo=flutter) ![Dart](https://img.shields.io/badge/Dart-3.3.0-blue?logo=dart) ![GitHub](https://img.shields.io/github/license/Phongphisut-Khenchat-Personal/random-choice-app)
-
-A Flutter application that allows users to create a random choice wheel with AdMob integration. Perfect for making fun decisions! 🎉
-
----
+A beautiful Flutter application that lets users create a customizable spinning wheel for random selections. Perfect for making decisions, games, or any situation where you need a random choice.
 
 ## ✨ Features
 
-- **Add and Remove Choices** 🖋️: Easily manage your options.
-- **Spin the Wheel** 🎰: Get a random result with a fun wheel animation.
-- **AdMob Integration** 📢: Display banner and interstitial ads.
-- **Local Storage** 💾: Save your choices using `shared_preferences`.
-- **Beautiful UI** 🌟: Clean and modern design with a touch of fun.
+- **Interactive Spinning Wheel**: Visually appealing wheel that spins to select a random choice
+- **Custom Choices**: Add your own choices to the wheel
+- **Persistent Storage**: Your choices are saved between sessions
+- **Customization Options**:
+  - Remove selected choices after spinning
+  - Reset all choices after spinning
+- **Clean UI**: Modern, minimalist design with smooth animations
+- **Thai Language Support**: Full Thai language interface
+
+## 🛠️ Tech Stack
+
+- **Framework**: Flutter
+- **State Management**: GetX
+- **Animations**: Flutter Fortune Wheel
+- **Storage**: SharedPreferences
+- **Ad Integration**: Google Mobile Ads
+
+## 📋 Usage
+
+1. **Add Choices**:
+   - Enter choices in the text field at the bottom
+   - You can add multiple choices at once by separating them with spaces
+   - Press "เพิ่ม" (Add) or hit Enter to add the choice(s)
+
+2. **Spin the Wheel**:
+   - Tap the "หมุน" (Spin) button to start the wheel
+   - Wait for the wheel to stop spinning
+   - View your randomly selected result
+
+3. **Manage Choices**:
+   - Delete individual choices by tapping the trash icon
+   - Clear all choices by tapping "ลบทั้งหมด" (Delete All)
+
+4. **Settings**:
+   - Access settings by tapping the gear icon
+   - Toggle "ลบตัวเลือกหลังหมุน" to remove selected choices after spinning
+   - Toggle "รีเซ็ตหลังหมุน" to clear all choices after spinning
+
+## 📥 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Phongphisut-Khenchat-Personal/random-choice-app.git
+
+# Navigate to the project directory
+cd wheel-of-fortune-app
+
+# Install dependencies
+flutter pub get
+
+# Run the app
+flutter run
+```
+
+## 📝 Project Structure
+
+```
+lib/
+├── bindings/
+│   └── app_binding.dart
+├── controllers/
+│   └── choice_controller.dart
+├── services/
+│   └── ad_service.dart
+├── views/
+│   └── home_view.dart
+└── main.dart
+```
+
+## 🔧 Dependencies
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.x.x
+  flutter_fortune_wheel: ^1.x.x
+  shared_preferences: ^2.x.x
+  google_mobile_ads: ^x.x.x
+```
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-## 🚀 Getting Started
-
-Follow these steps to run the app on your local machine:
-
-### Prerequisites
-- **Flutter SDK** 🛠️: [Install Flutter](https://flutter.dev/docs/get-started/install)
-- **Dart** 🐦: Included with Flutter
-- **Git** 📦: [Install Git](https://git-scm.com/downloads)
-
-### Installation
-1. **Clone the Repository** 📥:
-   ```bash
-   git clone https://github.com/Phongphisut-Khenchat-Personal/random-choice-app.git
-   ```
-2. **Navigate to the Project** 📂:
-   ```bash
-   cd random-choice-app
-   ```
-3. **Install Dependencies** 📚:
-   ```bash
-   flutter pub get
-   ```
-4. **Run the App** 🚀:
-   ```bash
-   flutter run
-   ```
-
-## 📦 Dependencies
-
-Here are the main packages used in this project:
-
-| Package | Version | Description |
-|---------|---------|-------------|
-| flutter_fortune_wheel | ^1.3.1 | For the spinning wheel UI 🎡 |
-| get | ^4.6.6 | State management & navigation |
-| shared_preferences | ^2.2.2 | Local storage for choices 💾 |
-| google_mobile_ads | ^5.1.0 | AdMob integration for ads 📢 |
-
-## 🛠️ Project Structure
-
-```
-📂 lib/
-   ├── 📄 main.dart               # App entry point
-   ├── 📂 bindings/
-   │   └── 📄 app_binding.dart    # Dependency injection
-   ├── 📂 controllers/
-   │   └── 📄 choice_controller.dart  # Logic for choices & wheel
-   ├── 📂 views/
-   │   └── 📄 home_view.dart      # Main UI
-   ├── 📂 services/
-   │   └── 📄 ad_service.dart     # AdMob ad management
-```
-
-## 🎨 Screenshots
-
-📸 Coming soon! (You can add screenshots of the app here)
-
-## 📝 How to Use
-
-1. **Add Choices** ➕: Enter your options in the input field and press "Add".
-2. **Spin the Wheel** 🎯: Click the "Spin Wheel" button to get a random result.
-3. **View Results** 🏆: The result will pop up in a beautiful modal.
-4. **Manage Choices** 🗑️: Remove individual choices or clear all.
-5. **Ads** 📢: Banner ads display at the bottom, and interstitial ads appear after spinning.
-
-## 📜 License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 📜
-
-## 📬 Contact
-
-👤 Phongphisut Khenchat
-
-📧 Email: chokun0988@gmail.com
-
-🌐 GitHub: Phongphisut-Khenchat-Personal
-
----
-
-💖 Thank you for checking out Random Choice App!
-
-Let's make decision-making fun together! 🎉
+Made with ❤️ and Flutter
