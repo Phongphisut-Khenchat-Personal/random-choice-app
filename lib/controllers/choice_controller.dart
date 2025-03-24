@@ -12,6 +12,7 @@ class WheelController extends GetxController {
   var selectedIndex = 0.obs;
   var removeAfterSpin = false.obs;
   var resetAfterSpin = false.obs;
+  static int spinCount = 0; // ตัวนับการหมุน
   
   final StreamController<int> controller = StreamController<int>.broadcast();
 
@@ -104,7 +105,6 @@ class WheelController extends GetxController {
   }
   
   void addChoice(String input) {
-    // แยกข้อความด้วยช่องว่าง
     List<String> newChoices = input.trim().split(' ').where((choice) => choice.isNotEmpty).toList();
     
     for (String choice in newChoices) {
@@ -163,7 +163,6 @@ class WheelController extends GetxController {
     final random = Random().nextInt(choices.length);
     controller.add(random);
 
-    // รอให้วงล้อหมุนเสร็จ (3 วินาที) ก่อนดำเนินการต่อ
     Timer(const Duration(seconds: 3), () {
       if (!isSpinning.value) return;
       selectedChoice.value = choices[random];
@@ -175,13 +174,16 @@ class WheelController extends GetxController {
   }
   
   void _handlePostSpinActions() {
+    spinCount++; // นับการหมุน
     if (removeAfterSpin.value && choices.isNotEmpty) {
       removeChoice(selectedIndex.value);
     }
     if (resetAfterSpin.value) {
       clearAllChoicesWithoutDialog();
     }
-    AdService.showInterstitialAd();
+    if (spinCount % 3 == 0) { // แสดงโฆษณาทุก 3 ครั้ง
+      AdService.showInterstitialAd();
+    }
   }
   
   void _showResultDialog() {

@@ -13,42 +13,24 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  BannerAd? _bannerAd;
-
   @override
   void initState() {
     super.initState();
-    _loadBannerAd();
+    AdService().initialize(); // เริ่มโหลดโฆษณาทั้งหมด
   }
 
   @override
   void dispose() {
-    _bannerAd?.dispose();
+    AdService().dispose(); // ล้างทรัพยากรเมื่อปิดหน้า
     super.dispose();
-  }
-
-  void _loadBannerAd() {
-    _bannerAd = BannerAd(
-      adUnitId: AdService.bannerAdUnitId,
-      size: AdSize.banner,
-      request: const AdRequest(),
-      listener: BannerAdListener(
-        onAdLoaded: (ad) {
-          setState(() {});
-        },
-        onAdFailedToLoad: (ad, error) {
-          debugPrint('Failed to load banner ad: $error');
-          ad.dispose();
-        },
-      ),
-    )..load();
   }
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<WheelController>();
     final textController = TextEditingController();
-    
+    final adService = AdService();
+
     Color getWheelColor(int index) {
       final colors = [
         Colors.blueGrey[200],
@@ -166,7 +148,6 @@ class _HomeViewState extends State<HomeView> {
                             ),
                           );
                         }
-                        
                         if (controller.choices.length == 1) {
                           return const Center(
                             child: Column(
@@ -187,7 +168,6 @@ class _HomeViewState extends State<HomeView> {
                             ),
                           );
                         }
-                        
                         return FortuneWheel(
                           physics: CircularPanPhysics(
                             duration: const Duration(seconds: 3),
@@ -392,7 +372,6 @@ class _HomeViewState extends State<HomeView> {
                               ),
                             );
                           }
-                          
                           return Column(
                             children: List.generate(
                               controller.choices.length,
@@ -440,13 +419,16 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
           ),
-          if (_bannerAd != null)
-            Container(
+          // เพิ่ม Banner Ad ที่นี่
+          SafeArea(
+            child: Container(
+              height: 50, // ความสูงของแบนเนอร์มาตรฐาน
               alignment: Alignment.center,
-              width: _bannerAd!.size.width.toDouble(),
-              height: _bannerAd!.size.height.toDouble(),
-              child: AdWidget(ad: _bannerAd!),
+              child: adService.getBannerAd() != null
+                  ? AdWidget(ad: adService.getBannerAd()!)
+                  : const SizedBox(height: 50, child: Center(child: Text('Loading Ad...'))),
             ),
+          ),
         ],
       ),
     );
