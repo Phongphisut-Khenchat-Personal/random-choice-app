@@ -1,4 +1,4 @@
-# 🎡 Wheel of Fortune App
+# 🎡 random-choice-app
 
 A beautiful Flutter application that lets users create a customizable spinning wheel for random selections. Perfect for making decisions, games, or any situation where you need a random choice.
 
@@ -49,7 +49,7 @@ A beautiful Flutter application that lets users create a customizable spinning w
 git clone https://github.com/Phongphisut-Khenchat-Personal/random-choice-app.git
 
 # Navigate to the project directory
-cd wheel-of-fortune-app
+cd random-choice-app
 
 # Install dependencies
 flutter pub get
